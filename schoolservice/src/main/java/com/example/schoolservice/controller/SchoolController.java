@@ -23,14 +23,14 @@ public class SchoolController {
 
     @GetMapping("/findHealthStudentStatus")
     public String getHealthStatusFromStudentService() {
-        String studentServiceUrl = "http://localhost:8081/api/student/healthStatus";
+        String studentServiceUrl = "http://student-service:8081/api/student/healthStatus";
         return restTemplate.getForObject(studentServiceUrl, String.class);
     }
 
     @PostMapping("/registerStudent")
     public ResponseEntity<?> registerStudent(@RequestBody Student student) {
         try {
-            String studentServiceUrl2 = "http://localhost:8081/api/student/add";
+            String studentServiceUrl2 = "http://student-service:8081/api/student/add";
             ResponseEntity<String> response = restTemplate.postForEntity(studentServiceUrl2, student, String.class);
 
             if (response.getBody() == null) {
@@ -46,7 +46,7 @@ public class SchoolController {
         @DeleteMapping("/deleteStudent/{id}")
         public ResponseEntity<?> deleteStudent(@PathVariable Long id) {
             try {
-                String studentServiceUrl = "http://localhost:8081/api/student/delete/" + id;
+                String studentServiceUrl = "http://student-service:8081/api/student/delete/" + id;
 
                 restTemplate.delete(studentServiceUrl);
 
