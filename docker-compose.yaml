@@ -3,21 +3,23 @@ services:
   school-service:
     build:
       context: ./schoolservice
+    container_name: school-service
     ports:
       - "8080:8080"
     networks:
-      - app-network
+      - my-network
     depends_on:
       - student-service
 
   student-service:
     build:
       context: ./studentservice
+    container_name: student-service
     ports:
       - "8081:8081"
     networks:
-      - app-network
+      - my-network
 
 networks:
-  app-network:
-    driver: bridge
+  my-network:
+    external: true
