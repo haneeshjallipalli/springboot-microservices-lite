@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  school-service:
+    build:
+      context: ./schoolservice
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    depends_on:
+      - student-service
+
+  student-service:
+    build:
+      context: ./studentservice
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
