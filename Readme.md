@@ -1,3 +1,11 @@
+```
+cd springboot-microservices-lite
+cd schoolservice
+mvn clean install
+cd ..
+cd studentservice
+mvn clean install
+```
 
 ```
 docker run -d --name school-service -p 8080:8080 school-service-image
