@@ -5,6 +5,7 @@ mvn clean install
 cd ..
 cd studentservice
 mvn clean install
+cd ..
 ```
 
 ```
